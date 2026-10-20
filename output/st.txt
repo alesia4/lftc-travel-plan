@@ -1,0 +1,36 @@
+POSITION	CATEGORY	LEXEME
+0	IDENTIFIER	max_budget
+1	IDENTIFIER	min_rating
+2	IDENTIFIER	travel_places
+3	IDENTIFIER	name
+4	CONSTANT	"Lisbon"
+5	IDENTIFIER	country
+6	CONSTANT	"Portugal"
+7	IDENTIFIER	budget
+8	CONSTANT	450
+9	IDENTIFIER	rating
+10	CONSTANT	5
+11	CONSTANT	"Prague"
+12	CONSTANT	"Czechia"
+13	CONSTANT	380
+14	CONSTANT	4
+15	CONSTANT	"Reykjavik"
+16	CONSTANT	"Iceland"
+17	CONSTANT	900
+18	CONSTANT	"Rome"
+19	CONSTANT	"Italy"
+20	CONSTANT	480
+21	IDENTIFIER	affordable
+22	IDENTIFIER	recommended
+23	IDENTIFIER	found
+24	CONSTANT	0
+25	IDENTIFIER	place
+26	IDENTIFIER	city
+27	CONSTANT	1
+28	CONSTANT	400
+29	CONSTANT	"Good value"
+30	CONSTANT	"Within budget"
+31	CONSTANT	4.7
+32	CONSTANT	"Top rated"
+33	CONSTANT	"No destinations match your preferences."
+34	CONSTANT	"Try increasing the budget or lowering the minimum rating."

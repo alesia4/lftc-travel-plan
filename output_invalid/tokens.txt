@@ -1,0 +1,7 @@
+KEYWORD	input	1	1
+IDENTIFIER	max_budget	1	7
+KEYWORD	output	2	1
+KEYWORD	output	3	1
+KEYWORD	output	4	1
+CONSTANT	12	4	8
+IDENTIFIER	abc	4	10

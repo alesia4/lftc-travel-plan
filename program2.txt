@@ -1,0 +1,18 @@
+destinations travel_places = [
+  {name: "Budapest", country: "Hungary", budget: 260, rating: 4},
+  {name: "Vienna", country: "Austria", budget: 390, rating: 5},
+  {name: "Sofia", country: "Bulgaria", budget: 180, rating: 4},
+  {name: "Copenhagen", country: "Denmark", budget: 620, rating: 5}
+]
+input weekend_budget
+weekend_options = travel_places ? budget <= weekend_budget
+highly_rated = weekend_options ? rating >= 4.5
+
+if highly_rated:
+  for option in highly_rated:
+    output option.name
+    output option.city
+  end
+else:
+  output "No highly rated weekend trip fits this budget."
+end
