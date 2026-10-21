@@ -122,7 +122,6 @@ def lex(source):
 
 
 def build_symbol_table(tokens):
-    # Hash Table implementat manual, nu dictionar Python.
     positions = HashTable(capacity=101)
     entries = []
 
@@ -133,18 +132,11 @@ def build_symbol_table(tokens):
             continue
 
         key = (category, token["lexeme"])
-
-        # Verificam daca elementul exista deja.
         existing_position = positions.get(key)
 
         if existing_position is None:
-            # Pozitia logica din Symbol Table.
             position = len(entries)
-
-            # Inseram cheia in Hash Table.
             positions.insert(key, position)
-
-            # Pastram intrarile in ordinea inserarii.
             entries.append({
                 "position": position,
                 "category": category,
@@ -159,7 +151,6 @@ def write_outputs(tokens, errors, out_dir):
 
     positions, entries = build_symbol_table(tokens)
 
-    # Scriem Program Internal Form.
     with (out_dir / "pif.txt").open(
         "w", encoding="utf-8"
     ) as f:
@@ -181,7 +172,6 @@ def write_outputs(tokens, errors, out_dir):
                 f'{token["column"]}\n'
             )
 
-    # Scriem Symbol Table.
     with (out_dir / "st.txt").open(
         "w", encoding="utf-8"
     ) as f:
@@ -194,7 +184,6 @@ def write_outputs(tokens, errors, out_dir):
                 f'{entry["lexeme"]}\n'
             )
 
-    # Scriem erorile lexicale.
     with (out_dir / "errors.txt").open(
         "w", encoding="utf-8"
     ) as f:
