@@ -1,5 +1,4 @@
 class HashTable:
-
     def __init__(self, capacity=101):
         self.capacity = capacity
         self.buckets = [[] for _ in range(capacity)]
@@ -10,48 +9,42 @@ class HashTable:
         hash_value = 0
 
         for character in text:
-            hash_value = (
-                hash_value * 31 + ord(character)
-            ) % self.capacity
+            hash_value = (hash_value * 31 + ord(character)) % self.capacity
 
         return hash_value
 
-    def insert(self, key, value):
-        index = self._hash(key)
-        bucket = self.buckets[index]
+    def insert(self, key):
+        bucket_index = self._hash(key)
+        bucket = self.buckets[bucket_index]
 
-        for i, (existing_key, existing_value) in enumerate(bucket):
+        for position, existing_key in enumerate(bucket):
             if existing_key == key:
-                bucket[i] = (key, value)
-                return
+                return bucket_index, position
 
-        bucket.append((key, value))
+        position = len(bucket)
+        bucket.append(key)
         self.size += 1
 
-    def get(self, key, default=None):
-        index = self._hash(key)
-        bucket = self.buckets[index]
+        return bucket_index, position
 
-        for existing_key, value in bucket:
+    def get(self, key):
+        bucket_index = self._hash(key)
+        bucket = self.buckets[bucket_index]
+
+        for position, existing_key in enumerate(bucket):
             if existing_key == key:
-                return value
+                return bucket_index, position
 
-        return default
-
-    def contains(self, key):
-        index = self._hash(key)
-        bucket = self.buckets[index]
-
-        for existing_key, value in bucket:
-            if existing_key == key:
-                return True
-
-        return False
+        return None
 
     def __len__(self):
         return self.size
 
-    def display(self):
-        for index, bucket in enumerate(self.buckets):
-            if bucket:
-                print(f"Bucket {index}: {bucket}")
+    def get_entries(self):
+        entries = []
+
+        for bucket_index, bucket in enumerate(self.buckets):
+            for position, key in enumerate(bucket):
+                entries.append((bucket_index, position, key))
+
+        return entries

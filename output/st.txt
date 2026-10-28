@@ -1,36 +1,36 @@
-POSITION	CATEGORY	LEXEME
-0	IDENTIFIER	max_budget
-1	IDENTIFIER	min_rating
-2	IDENTIFIER	travel_places
-3	IDENTIFIER	name
-4	CONSTANT	"Lisbon"
-5	IDENTIFIER	country
-6	CONSTANT	"Portugal"
-7	IDENTIFIER	budget
-8	CONSTANT	450
-9	IDENTIFIER	rating
-10	CONSTANT	5
-11	CONSTANT	"Prague"
-12	CONSTANT	"Czechia"
-13	CONSTANT	380
-14	CONSTANT	4
-15	CONSTANT	"Reykjavik"
-16	CONSTANT	"Iceland"
-17	CONSTANT	900
-18	CONSTANT	"Rome"
-19	CONSTANT	"Italy"
-20	CONSTANT	480
-21	IDENTIFIER	affordable
-22	IDENTIFIER	recommended
-23	IDENTIFIER	found
-24	CONSTANT	0
-25	IDENTIFIER	place
-26	IDENTIFIER	city
-27	CONSTANT	1
-28	CONSTANT	400
-29	CONSTANT	"Good value"
-30	CONSTANT	"Within budget"
-31	CONSTANT	4.7
-32	CONSTANT	"Top rated"
-33	CONSTANT	"No destinations match your preferences."
-34	CONSTANT	"Try increasing the budget or lowering the minimum rating."
+BUCKET	POSITION_IN_BUCKET	CATEGORY	LEXEME
+9	0	CONSTANT	"Czechia"
+10	0	CONSTANT	"Within budget"
+22	0	CONSTANT	"Italy"
+25	0	CONSTANT	0
+25	1	CONSTANT	"Good value"
+27	0	CONSTANT	480
+27	1	CONSTANT	4.7
+28	0	IDENTIFIER	recommended
+31	0	CONSTANT	4
+34	0	CONSTANT	"Reykjavik"
+37	0	CONSTANT	"Prague"
+37	1	IDENTIFIER	affordable
+38	0	CONSTANT	"Lisbon"
+39	0	CONSTANT	450
+41	0	CONSTANT	"Portugal"
+41	1	CONSTANT	"Iceland"
+44	0	IDENTIFIER	country
+45	0	CONSTANT	900
+47	0	IDENTIFIER	found
+48	0	CONSTANT	"Rome"
+48	1	CONSTANT	"Top rated"
+48	2	CONSTANT	"No destinations match your preferences."
+50	0	CONSTANT	380
+59	0	CONSTANT	400
+69	0	IDENTIFIER	rating
+70	0	IDENTIFIER	travel_places
+74	0	IDENTIFIER	budget
+74	1	IDENTIFIER	place
+77	0	CONSTANT	1
+78	0	IDENTIFIER	max_budget
+78	1	IDENTIFIER	city
+83	0	CONSTANT	5
+84	0	CONSTANT	"Try increasing the budget or lowering the minimum rating."
+92	0	IDENTIFIER	min_rating
+93	0	IDENTIFIER	name

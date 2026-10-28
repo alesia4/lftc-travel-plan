@@ -122,35 +122,22 @@ def lex(source):
 
 
 def build_symbol_table(tokens):
-    positions = HashTable(capacity=101)
-    entries = []
+    symbol_table = HashTable(capacity=101)
 
     for token in tokens:
-        category = token["category"]
+        if token["category"] in ("IDENTIFIER", "CONSTANT"):
+            key = (token["category"], token["lexeme"])
+            symbol_table.insert(key)
 
-        if category not in ("IDENTIFIER", "CONSTANT"):
-            continue
-
-        key = (category, token["lexeme"])
-        existing_position = positions.get(key)
-
-        if existing_position is None:
-            position = len(entries)
-            positions.insert(key, position)
-            entries.append({
-                "position": position,
-                "category": category,
-                "lexeme": token["lexeme"]
-            })
-
-    return positions, entries
+    return symbol_table
 
 
 def write_outputs(tokens, errors, out_dir):
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    positions, entries = build_symbol_table(tokens)
+    symbol_table = build_symbol_table(tokens)
 
+    # Generate PIF
     with (out_dir / "pif.txt").open(
         "w", encoding="utf-8"
     ) as f:
@@ -159,12 +146,11 @@ def write_outputs(tokens, errors, out_dir):
         )
 
         for token in tokens:
-            key = (token["category"], token["lexeme"])
-
             if token["category"] in ("IDENTIFIER", "CONSTANT"):
-                st_position = positions.get(key, -1)
+                key = (token["category"], token["lexeme"])
+                st_position = symbol_table.get(key)
             else:
-                st_position = -1
+                st_position = (-1, -1)
 
             f.write(
                 f'{token["code"]}\t{token["lexeme"]}\t'
@@ -172,18 +158,23 @@ def write_outputs(tokens, errors, out_dir):
                 f'{token["column"]}\n'
             )
 
+    # Generate Symbol Table
     with (out_dir / "st.txt").open(
         "w", encoding="utf-8"
     ) as f:
-        f.write("POSITION\tCATEGORY\tLEXEME\n")
+        f.write(
+            "BUCKET\tPOSITION_IN_BUCKET\tCATEGORY\tLEXEME\n"
+        )
 
-        for entry in entries:
+        for bucket_index, position, key in symbol_table.get_entries():
+            category, lexeme = key
+
             f.write(
-                f'{entry["position"]}\t'
-                f'{entry["category"]}\t'
-                f'{entry["lexeme"]}\n'
+                f"{bucket_index}\t{position}\t"
+                f"{category}\t{lexeme}\n"
             )
 
+    # Generate lexical errors
     with (out_dir / "errors.txt").open(
         "w", encoding="utf-8"
     ) as f:
@@ -195,7 +186,7 @@ def write_outputs(tokens, errors, out_dir):
                     f"Line {ln}, column {cl}: {message}\n"
                 )
 
-    # Scriem lista simplificata de tokenuri.
+    # Generate tokens
     with (out_dir / "tokens.txt").open(
         "w", encoding="utf-8"
     ) as f:
