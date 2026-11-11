@@ -1,0 +1,37 @@
+input max_budget
+input min_rating
+
+destinations travel_places = [
+  {name: "Lisbon", country: "Portugal", budget: 450, rating: 5},
+  {name: "Prague", country: "Czechia", budget: 380, rating: 4},
+  {name: "Reykjavik", country: "Iceland", budget: 900, rating: 5},
+  {name: "Rome", country: "Italy", budget: 480, rating: 5}
+]
+
+affordable = travel_places ? budget <= max_budget
+recommended = affordable ? rating >= min_rating
+found = 0
+
+if recommended:
+  for place in recommended:
+    output place.name
+    output place.city
+    found = found + 1
+    if place.budget <= 400:
+      output "Good value"
+    else:
+      output "Within budget"
+    end
+    if place.rating >= 4.7:
+      output "Top rated"
+    end
+  end
+else:
+  output "No destinations match your preferences."
+end
+
+if found > 0:
+  output found
+else:
+  output "Try increasing the budget or lowering the minimum rating."
+end
