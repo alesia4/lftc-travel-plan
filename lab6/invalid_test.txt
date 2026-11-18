@@ -1,0 +1,4 @@
+input max_budget
+output @
+output "Lisbon
+output 12abc

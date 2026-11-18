@@ -1,0 +1,7 @@
+KEYWORD	input	1	1
+IDENTIFIER	max_budget	1	7
+KEYWORD	if	2	1
+IDENTIFIER	max_budget	2	4
+DELIMITER	:	2	14
+KEYWORD	output	3	5
+CONSTANT	"Hello"	3	12

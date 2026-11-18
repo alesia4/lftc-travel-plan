@@ -1,0 +1,107 @@
+1. program -> statements
+2. statements -> statements statement
+3. statements -> statements statement
+4. statements -> statements statement
+5. statements -> statements statement
+6. statements -> statement
+7. statement -> destinations_statement
+8. destinations_statement -> DESTINATIONS IDENTIFIER ASSIGN expression
+9. expression -> list_literal
+10. list_literal -> LBRACKET elements RBRACKET
+11. elements -> elements COMMA expression
+12. elements -> elements COMMA expression
+13. elements -> elements COMMA expression
+14. elements -> expression
+15. expression -> object_literal
+16. object_literal -> LBRACE fields RBRACE
+17. fields -> fields COMMA field
+18. fields -> fields COMMA field
+19. fields -> fields COMMA field
+20. fields -> field
+21. field -> IDENTIFIER COLON expression
+22. expression -> STRING
+23. field -> IDENTIFIER COLON expression
+24. expression -> STRING
+25. field -> IDENTIFIER COLON expression
+26. expression -> INTEGER
+27. field -> IDENTIFIER COLON expression
+28. expression -> INTEGER
+29. expression -> object_literal
+30. object_literal -> LBRACE fields RBRACE
+31. fields -> fields COMMA field
+32. fields -> fields COMMA field
+33. fields -> fields COMMA field
+34. fields -> field
+35. field -> IDENTIFIER COLON expression
+36. expression -> STRING
+37. field -> IDENTIFIER COLON expression
+38. expression -> STRING
+39. field -> IDENTIFIER COLON expression
+40. expression -> INTEGER
+41. field -> IDENTIFIER COLON expression
+42. expression -> INTEGER
+43. expression -> object_literal
+44. object_literal -> LBRACE fields RBRACE
+45. fields -> fields COMMA field
+46. fields -> fields COMMA field
+47. fields -> fields COMMA field
+48. fields -> field
+49. field -> IDENTIFIER COLON expression
+50. expression -> STRING
+51. field -> IDENTIFIER COLON expression
+52. expression -> STRING
+53. field -> IDENTIFIER COLON expression
+54. expression -> INTEGER
+55. field -> IDENTIFIER COLON expression
+56. expression -> INTEGER
+57. expression -> object_literal
+58. object_literal -> LBRACE fields RBRACE
+59. fields -> fields COMMA field
+60. fields -> fields COMMA field
+61. fields -> fields COMMA field
+62. fields -> field
+63. field -> IDENTIFIER COLON expression
+64. expression -> STRING
+65. field -> IDENTIFIER COLON expression
+66. expression -> STRING
+67. field -> IDENTIFIER COLON expression
+68. expression -> INTEGER
+69. field -> IDENTIFIER COLON expression
+70. expression -> INTEGER
+71. statement -> input_statement
+72. input_statement -> INPUT IDENTIFIER
+73. statement -> assignment
+74. assignment -> IDENTIFIER ASSIGN expression
+75. expression -> expression QUESTION expression
+76. expression -> IDENTIFIER
+77. expression -> expression LE expression
+78. expression -> IDENTIFIER
+79. expression -> IDENTIFIER
+80. statement -> assignment
+81. assignment -> IDENTIFIER ASSIGN expression
+82. expression -> expression QUESTION expression
+83. expression -> IDENTIFIER
+84. expression -> expression GE expression
+85. expression -> IDENTIFIER
+86. expression -> DECIMAL
+87. statement -> if_statement
+88. if_statement -> IF expression COLON statements ELSE COLON statements END
+89. expression -> IDENTIFIER
+90. statements -> statement
+91. statement -> for_statement
+92. for_statement -> FOR IDENTIFIER IN expression COLON statements END
+93. expression -> IDENTIFIER
+94. statements -> statements statement
+95. statements -> statement
+96. statement -> output_statement
+97. output_statement -> OUTPUT expression
+98. expression -> expression DOT IDENTIFIER
+99. expression -> IDENTIFIER
+100. statement -> output_statement
+101. output_statement -> OUTPUT expression
+102. expression -> expression DOT IDENTIFIER
+103. expression -> IDENTIFIER
+104. statements -> statement
+105. statement -> output_statement
+106. output_statement -> OUTPUT expression
+107. expression -> STRING

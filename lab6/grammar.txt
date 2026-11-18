@@ -1,0 +1,116 @@
+
+TRAVEL PLAN DSL - GRAMMAR
+=========================
+
+Start symbol: program
+
+1. program ::= statements
+
+2. statements ::= statements statement
+                | statement
+
+3. statement ::= input_statement
+               | output_statement
+               | assignment
+               | destinations_statement
+               | if_statement
+               | for_statement
+
+4. input_statement ::= INPUT IDENTIFIER
+
+5. output_statement ::= OUTPUT expression
+
+6. assignment ::= IDENTIFIER ASSIGN expression
+
+7. destinations_statement ::=
+       DESTINATIONS IDENTIFIER ASSIGN expression
+
+8. if_statement ::=
+       IF expression COLON statements END
+     | IF expression COLON statements
+       ELSE COLON statements END
+
+9. for_statement ::=
+       FOR IDENTIFIER IN expression COLON statements END
+
+10. expression ::= expression OR expression
+                 | expression AND expression
+                 | expression EQ expression
+                 | expression NE expression
+                 | expression GE expression
+                 | expression LE expression
+                 | expression GT expression
+                 | expression LT expression
+                 | expression PLUS expression
+                 | expression MINUS expression
+                 | expression QUESTION expression
+                 | expression DOT IDENTIFIER
+                 | MINUS expression
+                 | LPAREN expression RPAREN
+                 | list_literal
+                 | object_literal
+                 | IDENTIFIER
+                 | INTEGER
+                 | DECIMAL
+                 | STRING
+                 | TRUE
+                 | FALSE
+
+11. list_literal ::= LBRACKET elements RBRACKET
+                   | LBRACKET RBRACKET
+
+12. elements ::= elements COMMA expression
+               | expression
+
+13. object_literal ::= LBRACE fields RBRACE
+                     | LBRACE RBRACE
+
+14. fields ::= fields COMMA field
+             | field
+
+15. field ::= IDENTIFIER COLON expression
+
+TERMINALS
+=========
+
+Keywords:
+INPUT OUTPUT DESTINATIONS IF ELSE END
+FOR IN AND OR TRUE FALSE
+
+Identifiers and constants:
+IDENTIFIER INTEGER DECIMAL STRING
+
+Operators:
+ASSIGN  =
+EQ      ==
+NE      !=
+GE      >=
+LE      <=
+GT      >
+LT      <
+PLUS    +
+MINUS   -
+QUESTION ?
+DOT     .
+
+Delimiters:
+LPAREN   (
+RPAREN   )
+LBRACKET [
+RBRACKET ]
+LBRACE   {
+RBRACE   }
+COMMA    ,
+COLON    :
+
+
+NOTES
+
+- A program contains one or more statements.
+- Statements do not require semicolons.
+- IF and FOR blocks end with END.
+- The QUESTION operator represents filtering.
+- DOT represents property access.
+- Lists contain expressions.
+- Objects contain fields of the form name: value.
+- Operator precedence is defined in parser.py.

@@ -1,0 +1,3 @@
+Line 2, column 8: Invalid character '@'
+Line 3, column 8: Unterminated string literal
+Line 4, column 8: Malformed numeric token '12abc'
